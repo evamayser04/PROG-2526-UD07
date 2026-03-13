@@ -1,7 +1,5 @@
 package a00;
 
-import java.io.PrintStream;
-
 /**
  *  SELECCIÓN DINÁMICA DE MÉTODOS:
  *  En Java, cuando una variable de tipo Persona apunta a un objeto
@@ -14,12 +12,10 @@ import java.io.PrintStream;
  */
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-
-        System.setOut(new PrintStream(System.out, true, "UTF-8"));
+    public static void main(String[] args){
         
         // 1. Creación de objetos
-        System.out.println("\n\n1. Creación de objetos.");
+        System.out.println("1. Creación de objetos.");
         Persona  p = new Persona (30,"Ana García",1.65,"Española");
         Empleado e = new Empleado(45,"Luis Pérez",1.80,"Mexicana",2800.0);
         Cliente  c = new Cliente (28,"Marta López",1.70,"Argentina",1500.0);
@@ -27,35 +23,35 @@ public class Main {
 
         // 2. Selección dinámica de métodos
         // polimorfismo: distintos tipos en array de Persona[]
-        System.out.println("\n\n2. Selección dinámica de métodos:");
+        System.out.println("2. Selección dinámica de métodos:");
         
         Persona[] personas = { p, e, c, d };
 
         for (Persona persona : personas) {
             persona.mostrarDatos();
-            System.out.println("\tMayor de edad: " + persona.esMayorDeEdad()+"\n");
+            System.out.println("Mayor de edad: " + persona.esMayorDeEdad());
         }
 
         // 3. Métodos específicos de cada subclase
         System.out.println("\n\n3. Métodos específicos de cada subclase");
 
         // Empleado
-        System.out.println("\n── Empleado ──");
-        System.out.println("\t¿Puede trabajar?: " + e.puedeTrabajar());
-        System.out.println("\tPaga extra: " + e.calcularPagaExtra() + " €");
+        System.out.println("Empleado");
+        System.out.println("¿Puede trabajar?: " + e.puedeTrabajar());
+        System.out.println("Paga extra: " + e.calcularPagaExtra() + " euros");
         e.subirSalario(10); // subida del 10 %
         e.mostrarDatos();
 
         // Cliente
-        System.out.println("\n── Cliente ──");
+        System.out.println("Cliente");
         c.comprar("Portátil",1200.0);
         c.comprar("Televisor",500.0);   // no tendrá suficiente
         c.mostrarDatos();
 
         // Directivo
-        System.out.println("\n── Directivo ──");
+        System.out.println("Directivo");
         d.mostrarDatos();
-        System.out.println("\tRetribución total anual (con bonus): "+d.retribucionAnual()+" €");
-        System.out.println("\tPaga extra: "+d.calcularPagaExtra()+" €");
+        System.out.println("\tRetribución total anual (con bonus): "+d.retribucionAnual()+"euros");
+        System.out.println("\tPaga extra: "+d.calcularPagaExtra()+"euros");
     }
 }
