@@ -4,7 +4,6 @@ import a04.Instrumento;
 
 public class Piano extends Instrumento {
 
-    @Override
     public void interpretar() {
         System.out.print("El piano toca: ");
         for (int i = 0; i < posicion; i++) {
